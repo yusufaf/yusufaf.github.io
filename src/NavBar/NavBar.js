@@ -5,8 +5,8 @@ import {
     Route,
     Link,
 } from "react-router-dom";
-// import 
-import './App.css';
+import About from "../About/About";
+import Resume from "../Resume/Resume";
 
 {/* <Route path='/welcome' element={<Home/>} /> */}
 const NavBar = props => {
@@ -17,9 +17,6 @@ const NavBar = props => {
                     <Link to="/">Home</Link>
                 </li>
                 <li>
-                    <Link to="/about">About</Link>
-                </li>
-                <li>
                     <Link to="/resume">Resume</Link>
                 </li>
             </ul>
@@ -28,8 +25,7 @@ const NavBar = props => {
 
         
             <Routes>
-                <Route path="/" element={<Home/>} />
-                <Route path="/about" element={<About/>}/>
+                <Route path="/" element={<div> Hi </div>} />
                 <Route path="/resume" element={<Resume/>}/>
             </Routes>
         </div>

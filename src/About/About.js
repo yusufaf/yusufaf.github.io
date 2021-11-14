@@ -5,8 +5,8 @@ import {
 
 const About = props => {
     return (
-        <div className="resume-container">
-           Resume
+        <div className="about-container">
+           About
         </div>
     );
 }
