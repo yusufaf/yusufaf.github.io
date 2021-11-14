@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from "react"
-// import 
+import NavBar from "./NavBar/NavBar";
 import './App.css';
 
 const App = props => {
