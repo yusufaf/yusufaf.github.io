@@ -1,0 +1,25 @@
+.about-container {
+    background: #1F1B24;
+    margin-top: 20px;
+    position: absolute;
+    left: 35vw;
+    width: 30vw;
+
+    display: flex;
+    flex-direction: column;
+    
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+
+    padding: 10px 15px;
+}
+
+.about-title {
+    /* float: left; */
+    display: flex;
+    color:white;
+}
+
+.about-text {
+    display: flex;
+    color:white;
+}

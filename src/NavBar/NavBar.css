@@ -1,21 +1,32 @@
+/* .nav-container {
+} */
+
 ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background-color: #333;
-  }
-  
-  
-  li a {
-    display: block;
-    color: white;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-  }
-  
-  /* Change the link color to #111 (black) on hover */
-  li a:hover {
-    background-color: #111;
-  }
+  background: #1F1B24;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  /* background-color: #333; */
+  height: 4vh;
+}
+
+.link-item {
+  display: inline-flex;
+  margin-right: 10px;
+}
+
+.link {
+  color: white;
+  text-align: center;
+  text-decoration: none;
+}
+
+.github-logo {
+  background: black;
+  height: 24px;
+  border: 2px solid black;
+  border-radius: 20px;
+  position: absolute;
+  /* top: 1%; */
+}

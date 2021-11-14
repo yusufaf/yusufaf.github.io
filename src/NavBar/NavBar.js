@@ -5,28 +5,41 @@ import {
     Route,
     Link,
 } from "react-router-dom";
+
+import githubLogo from "../resources/github-logo.png"
 import About from "../About/About";
 import Resume from "../Resume/Resume";
+import "./NavBar.css";
 
-{/* <Route path='/welcome' element={<Home/>} /> */}
+{/* <Route path='/welcome' element={<Home/>} /> */ }
 const NavBar = props => {
     return (
-        <div>
+        <div className="nav-container">
             <ul>
-                <li>
-                    <Link to="/">Home</Link>
+                <li className="link-item">
+                    <Link className="link" to="/">Home</Link>
                 </li>
-                <li>
-                    <Link to="/resume">Resume</Link>
+                <li className="link-item">
+                    <Link className="link" to="/resume">Resume</Link>
                 </li>
+                <a
+                    href="https://github.com/yusufaf"
+                    target="_blank" rel="noreferrer"
+                >
+                    <img
+                        className="github-logo"
+                        src={githubLogo}
+                        alt="Personal GitHub"
+                        title="Personal GitHub"
+                    />
+                </a>
             </ul>
 
-            <hr />
+            {/* <hr /> */}
 
-        
             <Routes>
-                <Route path="/" element={<div> Hi </div>} />
-                <Route path="/resume" element={<Resume/>}/>
+                <Route path="/" element={<About />} />
+                <Route path="/resume" element={<Resume />} />
             </Routes>
         </div>
     );
