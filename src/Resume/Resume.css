@@ -1,0 +1,24 @@
+.resume-container {
+    background: #1F1B24;
+    margin-top: 20px;
+    position: absolute;
+    left: 20vw;
+    width: 60vw;
+    height: fit-content;
+
+    display: flex;
+    flex-direction: column;
+    
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+
+    padding: 10px 15px;
+}
+
+.resume-title {
+    color: white;
+    display: flex;
+}
+
+.resume-img {
+    padding: 5px;
+}

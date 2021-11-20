@@ -6,17 +6,15 @@ import {
 import "./About.css";
 const About = props => {
     return (
-        <>
         <div className="about-container">
           <div className="about-title">
-              About me
+              <b> About me </b>
           </div>
           <div className="about-text">
               Hi there!
+              My name is Yusuf Afzal
           </div>
         </div>
-
-        </>
     );
 }
 
