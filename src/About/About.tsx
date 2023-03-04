@@ -39,12 +39,12 @@ const About = () => {
             <AboutSection>
                 <SectionTitle>Highlighted Projects</SectionTitle>
                 <SectionContent className="indented">
-                    <SectionTitle><SectionLink href="">Quizaroni</SectionLink></SectionTitle>
+                    <SectionTitle><SectionLink href="https://github.com/yusufaf/quizaroni">Quizaroni</SectionLink></SectionTitle>
 
                     Create and share study flash cards with your friends.
                 </SectionContent>
                 <SectionContent className="indented">
-                    <SectionTitle><SectionLink href="">NBA Team Builder</SectionLink></SectionTitle>
+                    <SectionTitle><SectionLink href="https://github.com/yusufaf/nba-central">NBA Team Builder</SectionLink></SectionTitle>
                     Build your own NBA team and aim for the best score. Share with friends and see who can build the best team.
                 </SectionContent>
             </AboutSection>
