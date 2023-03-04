@@ -1,17 +1,12 @@
 import React, { useState, useEffect } from "react"
 import {
-    BrowserRouter as Router,
-    Routes,
-    Route,
     Link,
 } from "react-router-dom";
 
 import githubLogo from "../resources/github-logo.png"
-import About from "../About/About";
-import Resume from "../Resume/Resume";
+import linkedInLogo from "../resources/linkedin.svg"
 import "./NavBar.css";
 
-{/* <Route path='/welcome' element={<Home/>} /> */ }
 const NavBar = props => {
     return (
         <div className="nav-container">
@@ -33,15 +28,24 @@ const NavBar = props => {
                         title="Personal GitHub"
                     />
                 </a>
+                <a
+                    href="https://www.linkedin.com/in/yusuf-afzal/"
+                    target="_blank" rel="noreferrer"
+                >
+                    <img
+                        className="linkedin-logo"
+                        src={linkedInLogo}
+                        alt="LinkedIn"
+                        title="LinkedIn"
+                    />
+
+                </a>
             </ul>
 
             {/* <hr /> */}
-
-            <Routes>
-                <Route path="/" element={<About />} />
-                <Route path="/resume" element={<Resume />} />
-            </Routes>
         </div>
+
+
     );
 }
 
