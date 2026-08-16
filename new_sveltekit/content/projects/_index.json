@@ -1,0 +1,22 @@
+{
+  "slugs": [
+    "audio-tag-mcp",
+    "catppuccin-millennium",
+    "open-notebook-flyio",
+    "sfn-diagram-action",
+    "sparkyfitness-flyio",
+    "spicetify-agent-skills",
+    "spicetify-album-length",
+    "spicetify-enhanced-folders",
+    "spicetify-enhanced-pins",
+    "spicetify-listening-list",
+    "spicetify-rym",
+    "tf2-loadout-assistant",
+    "tf2-wiki-mcp",
+    "wallabag-flyio",
+    "yamtrack-flyio"
+  ],
+  "lastSyncAttempt": "2026-08-16T01:48:28.545Z",
+  "lastFullSyncSuccess": true,
+  "failedSlugs": []
+}

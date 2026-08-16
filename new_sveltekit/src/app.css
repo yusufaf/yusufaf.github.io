@@ -1,0 +1,22 @@
+@import 'tailwindcss';
+
+/* Plain global CSS file (not a Svelte component <style> block) — plain
+   selectors apply globally already; Svelte's `:global(...)` wrapper is only
+   meaningful inside scoped component styles and is invalid CSS here (any
+   browser drops the whole rule when it can't parse the selector). */
+body {
+	margin: 0;
+	font-family:
+		-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell',
+		'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	background-image: url('/images/background.jpg');
+	background-size: cover;
+	background-attachment: fixed;
+	text-align: center;
+}
+
+code {
+	font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+}

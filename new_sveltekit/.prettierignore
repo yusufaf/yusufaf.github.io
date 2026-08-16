@@ -1,0 +1,13 @@
+# Package Managers
+package-lock.json
+pnpm-lock.yaml
+yarn.lock
+bun.lock
+bun.lockb
+
+# Miscellaneous
+/static/
+
+# Generated build-time data cache — written by scripts/sync-projects.mjs,
+# not meant to be hand-formatted.
+/content/

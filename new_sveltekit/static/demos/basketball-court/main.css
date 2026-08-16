@@ -1,0 +1,19 @@
+#container {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+#volume-button, #reset-button, #reset-camera-button {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    user-select: none;
+}
+
+.icon {
+    color: white;
+    font-size: 3rem;
+}

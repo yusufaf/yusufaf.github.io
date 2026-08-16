@@ -1,0 +1,39 @@
+name: Sync project READMEs
+on:
+  schedule:
+    - cron: '0 6 * * 1'   # weekly, Monday 06:00 UTC
+  workflow_dispatch: {}
+permissions:
+  contents: write
+concurrency:
+  group: sync-projects
+  cancel-in-progress: false
+# TODO: drop `working-directory: new_sveltekit` and the `new_sveltekit/`
+# prefix on `git add` below once Phase 5 promotes new_sveltekit/ to the repo
+# root -- until then its package.json (and content/projects/) live one level
+# down, not at repo root (which still has the old CRA app's package.json and
+# no sync:projects script at all).
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: new_sveltekit
+    steps:
+      - uses: actions/checkout@v5
+        with: { ref: source }
+      - uses: pnpm/action-setup@v6
+      - uses: actions/setup-node@v5
+        with: { node-version: lts/*, cache: pnpm }
+      - run: pnpm install
+      - run: pnpm run sync:projects
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Commit cache if changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add new_sveltekit/content/projects
+          git diff --cached --quiet || git commit -m "chore: refresh project README cache"
+          git diff --cached --quiet || git push
+        working-directory: .

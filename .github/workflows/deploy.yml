@@ -1,0 +1,49 @@
+name: Deploy site
+
+on:
+  push:
+    branches: [source]
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+# TODO: drop `working-directory: new_sveltekit` (and fix the artifact path
+# below) once Phase 5 promotes new_sveltekit/ to the repo root -- until then
+# the SvelteKit app's package.json lives one level down, not at repo root
+# (which still has the old CRA app's package.json).
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: new_sveltekit
+    steps:
+      - uses: actions/checkout@v5
+      - uses: pnpm/action-setup@v6
+      - uses: actions/setup-node@v5
+        with: { node-version: lts/*, cache: pnpm }
+      - uses: actions/configure-pages@v6
+      - run: pnpm install
+      - run: pnpm run build
+      - uses: actions/upload-pages-artifact@v5
+        with: { path: new_sveltekit/build }
+
+  deploy:
+    name: Deploy
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v5
