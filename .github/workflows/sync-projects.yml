@@ -37,6 +37,10 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add new_sveltekit/content/projects
-          git diff --cached --quiet || git commit -m "chore: refresh project README cache"
-          git diff --cached --quiet || git push
+          # One check, not two: after the commit nothing is staged, so a second
+          # `git diff --cached --quiet || git push` is always true and skips the push.
+          if ! git diff --cached --quiet; then
+            git commit -m "chore: refresh project README cache"
+            git push
+          fi
         working-directory: .
