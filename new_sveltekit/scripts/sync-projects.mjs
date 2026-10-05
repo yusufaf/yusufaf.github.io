@@ -30,7 +30,8 @@ const EXCLUDE = new Set([
 	'spicetify-enhanced-pins',
 	'spicetify-listening-list',
 	'spicetify-local-files-plus',
-	'spicetify-rym'
+	'spicetify-rym',
+	'spicetify-site' // the docs site itself, spicetify.yusufaf.dev
 	// judgment calls, review by hand before first run:
 	// 'tf2-loadout-assistant', 'sfn-diagram-action'
 ]);
