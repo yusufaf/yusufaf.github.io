@@ -1,0 +1,14 @@
+{
+  "repo": "homebrew-tap",
+  "fullName": "yusufaf/homebrew-tap",
+  "description": "Homebrew formulae for yusufaf projects (sfn-diagram)",
+  "homepage": "",
+  "topics": [],
+  "language": "Ruby",
+  "stars": 0,
+  "pushedAt": "2026-10-02T07:45:15Z",
+  "defaultBranch": "main",
+  "readmeMarkdown": "# yusufaf/homebrew-tap\n\nHomebrew formulae for [yusufaf](https://github.com/yusufaf) projects.\n\n```bash\nbrew install yusufaf/tap/sfn-diagram\n```\n\n`Formula/sfn-diagram.rb` is generated and pushed automatically by the release\nworkflow in [yusufaf/sfn-diagram](https://github.com/yusufaf/sfn-diagram); do not\nedit it by hand.\n",
+  "readmeSha": "bd748f19e5fc77a0498517e3aa079b81874c2bd7",
+  "fetchedAt": "2026-10-05T07:47:37.019Z"
+}

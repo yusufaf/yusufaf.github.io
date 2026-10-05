@@ -2,16 +2,24 @@
   "slugs": [
     "audio-tag-mcp",
     "catppuccin-millennium",
+    "duck-viewer",
+    "homebrew-tap",
+    "lark-alarm",
+    "logto-flyio",
+    "ntfy-flyio",
     "open-notebook-flyio",
     "sfn-diagram-action",
     "sparkyfitness-flyio",
     "spicetify-agent-skills",
+    "suwayomi-flyio",
     "tf2-loadout-assistant",
     "tf2-wiki-mcp",
+    "umami-flyio",
     "wallabag-flyio",
+    "wren-mail",
     "yamtrack-flyio"
   ],
-  "lastSyncAttempt": "2026-08-16T01:48:28.545Z",
+  "lastSyncAttempt": "2026-10-05T07:47:37.019Z",
   "lastFullSyncSuccess": true,
   "failedSlugs": []
 }
