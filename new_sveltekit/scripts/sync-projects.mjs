@@ -23,7 +23,14 @@ const EXCLUDE = new Set([
 	'quizaroni', // own subdomain
 	'nba-central', // own subdomain
 	'sfn-diagram', // own subdomain (sfn.yusufaf.dev)
-	'mjolnir' // gets /mjolnir/ via Pages rebasing — collision
+	'mjolnir', // gets /mjolnir/ via Pages rebasing — collision
+	// own subdomain (spicetify.yusufaf.dev), shown via externalProjects.ts
+	'spicetify-album-length',
+	'spicetify-enhanced-folders',
+	'spicetify-enhanced-pins',
+	'spicetify-listening-list',
+	'spicetify-local-files-plus',
+	'spicetify-rym'
 	// judgment calls, review by hand before first run:
 	// 'tf2-loadout-assistant', 'sfn-diagram-action'
 ]);
