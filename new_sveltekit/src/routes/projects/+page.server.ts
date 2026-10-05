@@ -1,3 +1,4 @@
+import { EXTERNAL_PROJECTS } from '$lib/externalProjects';
 import type { ProjectEntry } from '$lib/types';
 
 export const prerender = true;
@@ -17,5 +18,5 @@ export function load() {
 		.map(([, project]) => project)
 		.sort((a, b) => new Date(b.pushedAt).getTime() - new Date(a.pushedAt).getTime());
 
-	return { projects };
+	return { externalProjects: EXTERNAL_PROJECTS, projects };
 }

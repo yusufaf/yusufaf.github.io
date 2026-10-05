@@ -19,3 +19,12 @@ export type ProjectIndex = {
 	lastFullSyncSuccess: boolean;
 	failedSlugs: string[];
 };
+
+// A curated entry that links out to a site of its own, instead of a README
+// page rendered here. Hand-written; never touched by sync-projects.mjs.
+export type ExternalProject = {
+	name: string;
+	description: string;
+	url: string;
+	topics: string[];
+};

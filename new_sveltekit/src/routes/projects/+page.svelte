@@ -9,6 +9,19 @@
 <div class="projects-container">
 	<h1>Projects</h1>
 	<ul class="projects-list">
+		{#each data.externalProjects as project (project.url)}
+			<li class="project-card">
+				<a class="project-link" href={project.url}>{project.name} ↗</a>
+				<p class="project-description">{project.description}</p>
+				{#if project.topics.length}
+					<div class="project-topics">
+						{#each project.topics as topic (topic)}
+							<span class="topic">{topic}</span>
+						{/each}
+					</div>
+				{/if}
+			</li>
+		{/each}
 		{#each data.projects as project (project.repo)}
 			<li class="project-card">
 				<a class="project-link" href="/projects/{project.repo}/">{project.repo}</a>
