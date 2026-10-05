@@ -13,6 +13,8 @@ concurrency:
 # root -- until then its package.json (and content/projects/) live one level
 # down, not at repo root (which still has the old CRA app's package.json and
 # no sync:projects script at all).
+# The same promotion makes `package_json_file` (pnpm/action-setup) and
+# `cache-dependency-path` (setup-node) unnecessary: drop those too.
 jobs:
   sync:
     runs-on: ubuntu-latest

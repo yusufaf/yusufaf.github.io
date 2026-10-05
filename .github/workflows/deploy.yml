@@ -18,6 +18,8 @@ concurrency:
 # below) once Phase 5 promotes new_sveltekit/ to the repo root -- until then
 # the SvelteKit app's package.json lives one level down, not at repo root
 # (which still has the old CRA app's package.json).
+# The same promotion makes `package_json_file` (pnpm/action-setup) and
+# `cache-dependency-path` (setup-node) unnecessary: drop those too.
 jobs:
   build:
     name: Build
