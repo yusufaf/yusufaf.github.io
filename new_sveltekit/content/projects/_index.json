@@ -1,11 +1,13 @@
 {
   "slugs": [
     "audio-tag-mcp",
+    "aula-volume-knob",
     "catppuccin-millennium",
     "duck-viewer",
     "homebrew-tap",
     "lark-alarm",
     "logto-flyio",
+    "no-incognito",
     "ntfy-flyio",
     "open-notebook-flyio",
     "sfn-diagram-action",
@@ -15,11 +17,12 @@
     "tf2-loadout-assistant",
     "tf2-wiki-mcp",
     "umami-flyio",
+    "vencord-taskbar-status",
     "wallabag-flyio",
     "wren-mail",
     "yamtrack-flyio"
   ],
-  "lastSyncAttempt": "2026-10-05T13:24:50.536Z",
+  "lastSyncAttempt": "2026-10-12T14:14:20.517Z",
   "lastFullSyncSuccess": true,
   "failedSlugs": []
 }

@@ -1,0 +1,14 @@
+{
+  "repo": "aula-volume-knob",
+  "fullName": "yusufaf/aula-volume-knob",
+  "description": "AutoHotkey v2 script: knob press controls media on the EPOMAKER x AULA F75",
+  "homepage": "",
+  "topics": [],
+  "language": "AutoHotkey",
+  "stars": 0,
+  "pushedAt": "2026-10-09T07:12:53Z",
+  "defaultBranch": "main",
+  "readmeMarkdown": "# AULA Volume Knob\n\nAn [AutoHotkey](https://www.autohotkey.com/) v2 script that makes the volume knob on the EPOMAKER x AULA F75 control your music, not just mute.\n\nBy default, pressing the knob mutes your sound. This script changes that:\n\n| Knob press | What happens |\n| --- | --- |\n| Press once | Play / pause |\n| Press twice | Next track |\n| Press three times | Previous track |\n| Shift + press | Mute |\n\nTurning the knob still changes the volume as normal.\n\n## Setup\n\n1. Install [AutoHotkey v2](https://www.autohotkey.com/).\n2. Download [`AULA-Volume-Knob.ahk`](AULA-Volume-Knob.ahk).\n3. Double-click it. A green \"H\" icon appears in your system tray, and the knob now works the new way.\n\nTo run it every time you start Windows, press `Win + R`, type `shell:startup`, and put a shortcut to the script in that folder.\n\n## Tweaking\n\nAfter a press, the script waits 350 milliseconds to see if you press again. A single press therefore reacts after a short pause. To change the wait, edit the `350` in this line:\n\n```ahk\nSetTimer(HandleKnobPresses, -350)\n```\n\nA bigger number gives you more time to double or triple press. A smaller number makes a single press feel quicker.\n\n## Other keyboards\n\nThe script only watches for the \"mute\" key, which is what the AULA F75 knob sends when pressed. It should work with any keyboard whose knob press sends mute.\n\n## License\n\n[MIT](LICENSE)\n",
+  "readmeSha": "359fb386e26a81ea32299763d92b795fa6880d80",
+  "fetchedAt": "2026-10-12T14:14:20.517Z"
+}

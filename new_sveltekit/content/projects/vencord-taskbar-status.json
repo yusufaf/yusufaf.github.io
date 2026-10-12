@@ -1,0 +1,14 @@
+{
+  "repo": "vencord-taskbar-status",
+  "fullName": "yusufaf/vencord-taskbar-status",
+  "description": "Vencord plugin: change your Discord status from the Windows taskbar hover preview and jump list",
+  "homepage": "",
+  "topics": [],
+  "language": "TypeScript",
+  "stars": 0,
+  "pushedAt": "2026-10-06T07:06:52Z",
+  "defaultBranch": "main",
+  "readmeMarkdown": "# TaskbarStatus\n\nA [Vencord](https://vencord.dev) userplugin that lets you change your Discord status from the Windows taskbar, without opening the window.\n\n- **Hover preview:** four buttons (Online, Idle, Do Not Disturb, Invisible) under the Discord thumbnail, like Spotify's media buttons. The current status is ringed.\n- **Right-click jump list:** the same four statuses under \"Tasks\".\n\nWindows only. Discord's own call buttons (mute, deafen, video, disconnect) keep working alongside the status buttons.\n\n## Install\n\nVencord userplugins need a source build of Vencord ([guide](https://docs.vencord.dev/installing/custom-plugins/)).\n\n```sh\ngit clone https://github.com/Vendicated/Vencord\ncd Vencord\ngit clone https://github.com/yusufaf/vencord-taskbar-status src/userplugins/taskbarStatus.discordDesktop\npnpm install\npnpm build\npnpm inject\n```\n\nRestart Discord and enable **TaskbarStatus** in Vencord's plugin settings.\n\n## How it works\n\nTaskbar buttons and jump lists live in Electron's main process, which normal plugins can't reach. This plugin's `native.ts` runs there:\n\n- It wraps `BrowserWindow.setThumbarButtons` for the main window and merges Discord's call buttons with the status buttons. Windows allows at most 7 thumbnail buttons, so when all four call buttons are showing the button for your current status is dropped.\n- It sets jump-list tasks that launch `Update.exe --processStart ... --process-start-args --taskbar-status=<status>`, which survives Discord updates. A running Discord receives the argument through Electron's `second-instance` event; a cold start reads it from `process.argv`.\n- It re-applies the thumbnail buttons whenever the window is shown, because hiding to tray destroys the taskbar button and Windows discards its thumbnail buttons.\n\n## Limitations\n\n- With Discord closed to the tray there is no taskbar button, so no hover buttons. Jump-list tasks still work if Discord is pinned.\n- Picking a jump-list task can bring a visible Discord window to the front. The plugin tries to put a minimized or hidden window back as it was, but this is best effort.\n- If you enable the plugin while in a voice call, Discord's call buttons reappear the next time Discord updates them (for example on mute or deafen).\n\n## Development\n\n```sh\nnode --test merge.test.ts\n```\n\n## License\n\nGPL-3.0-or-later, matching Vencord.\n",
+  "readmeSha": "80375d3ea0fcffa8d9fed9cfd543b9555ac27fba",
+  "fetchedAt": "2026-10-12T14:14:20.517Z"
+}
