@@ -118,6 +118,26 @@ async function main() {
 		repos = [];
 	}
 
+	// Light metadata for every public, non-fork repo (EXCLUDE only governs README
+	// fetches). The site's curated catalog and project pages read facts from here.
+	if (repos.length > 0) {
+		const meta = repos
+			.filter((repo) => !repo.fork)
+			.map((repo) => ({
+				name: repo.name,
+				description: repo.description ?? '',
+				homepage: repo.homepage ?? '',
+				language: repo.language ?? '',
+				pushedAt: repo.pushed_at
+			}))
+			.sort((a, b) => a.name.localeCompare(b.name));
+		await writeFile(
+			path.join(CONTENT_DIR, '_repos.json'),
+			JSON.stringify(meta, null, 2) + '\n',
+			'utf-8'
+		);
+	}
+
 	const candidates = repos.filter((repo) => !repo.fork && !EXCLUDE.has(repo.name));
 
 	console.log(`[sync-projects] ${candidates.length} candidate repos after filtering.`);
