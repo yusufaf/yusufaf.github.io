@@ -1,32 +1,25 @@
 import { error } from '@sveltejs/kit';
 import hotspots from '$lib/print/hotspots.json';
-import { CATALOG_REPOS, findEntry, repoMeta } from '$lib/server/repos';
+import { SPOT_KEY } from '$lib/content/catalog';
+import { formatDay } from '$lib/format';
+import { CATALOG_REPOS, findEntry, loadRepos } from '$lib/server/repos';
 
 export function entries() {
 	return [...CATALOG_REPOS].map((slug) => ({ slug }));
 }
 
-const SPOT = {
-	watch: 'watch',
-	record: 'record',
-	controller: 'controller',
-	basketball: 'net',
-	cards: 'cards',
-	stencil: 'stencil'
-} as const;
-
-export function load({ params }) {
+export async function load({ params, fetch }) {
 	const found = findEntry(params.slug);
 	if (!found) error(404, 'Not found');
 	const { group, entry } = found;
-	const meta = repoMeta(params.slug);
-	if (!meta) throw new Error(`[catalog] ${params.slug} is curated but missing from _repos.json`);
+	const meta = (await loadRepos(fetch)).find((r) => r.name === params.slug);
+	if (!meta) throw new Error(`[catalog] ${params.slug} is curated but not a public repo`);
 
 	// Header crop: the page's object on the print, or plain paper for off-print work.
 	let focus = '18% 82%';
 	if (group.id !== 'offprint') {
-		const [x, y, w, h] = hotspots.desktop[SPOT[group.id]];
-		focus = `${Math.round(x + w / 2)}% ${Math.round(y + h / 2)}%`;
+		const [x, y] = hotspots.desktopMap.centres[SPOT_KEY[group.id]];
+		focus = `${x}% ${y}%`;
 	}
 
 	return {
@@ -39,7 +32,7 @@ export function load({ params }) {
 		},
 		facts: {
 			language: meta.language,
-			pushedAt: meta.pushedAt
+			pushed: formatDay(meta.pushedAt, true)
 		},
 		related: group.entries
 			.filter((e) => e.repo && e.repo !== params.slug)

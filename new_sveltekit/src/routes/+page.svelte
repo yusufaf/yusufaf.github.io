@@ -3,12 +3,10 @@
 	import Catalog from '$lib/components/Catalog.svelte';
 	import Footer from '$lib/components/Footer.svelte';
 	import Seo from '$lib/components/Seo.svelte';
-	import { ORDERED_OBJECTS, PRINT_OBJECTS } from '$lib/content/catalog';
+	import { PRINT_OBJECTS } from '$lib/content/catalog';
 	import { INTRO, MOD_LINE, NAME } from '$lib/content/site';
 
 	let { data } = $props();
-
-	const legend = ORDERED_OBJECTS.map((id) => PRINT_OBJECTS.find((g) => g.id === id)!);
 </script>
 
 <Seo title={NAME} description={INTRO} />
@@ -21,7 +19,7 @@
 	<section class="legend" aria-label="What's on the print">
 		<p class="mod">{MOD_LINE}</p>
 		<ul>
-			{#each legend as g (g.id)}
+			{#each PRINT_OBJECTS as g (g.id)}
 				<li>
 					<a href="#{g.id}">{g.printName ?? g.name}</a>
 					<span>{g.caption}</span>

@@ -5,14 +5,6 @@
 
 	let { data } = $props();
 
-	const pushed = $derived(
-		new Intl.DateTimeFormat('en-US', {
-			month: 'short',
-			day: 'numeric',
-			year: 'numeric',
-			timeZone: 'America/Los_Angeles'
-		}).format(new Date(data.facts.pushedAt))
-	);
 	const liveLabel = $derived(
 		data.entry.live
 			? data.entry.live.href.startsWith('https://')
@@ -64,7 +56,7 @@
 		{/if}
 		<div>
 			<dt>Last push</dt>
-			<dd>{pushed}</dd>
+			<dd>{data.facts.pushed}</dd>
 		</div>
 		{#if data.related.length}
 			<div>

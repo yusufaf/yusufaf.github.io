@@ -211,11 +211,7 @@ export const UNLISTED_REPOS = new Set([
 	'yamtrack-flyio'
 ]);
 
-/** Hero objects in reading order. */
-export const PRINT_OBJECTS = GROUPS.filter(
-	(g): g is Group & { id: ObjectId } => g.id !== 'offprint'
-);
-
+/** Print objects in reading order (legend, hero links). */
 export const ORDERED_OBJECTS: ObjectId[] = [
 	'watch',
 	'record',
@@ -224,3 +220,17 @@ export const ORDERED_OBJECTS: ObjectId[] = [
 	'cards',
 	'stencil'
 ];
+
+export const PRINT_OBJECTS = ORDERED_OBJECTS.map(
+	(id) => GROUPS.find((g) => g.id === id) as Group & { id: ObjectId }
+);
+
+/** Each object's key in the renderer's output (src/lib/print/hotspots.json). */
+export const SPOT_KEY = {
+	watch: 'watch',
+	record: 'record',
+	controller: 'controller',
+	basketball: 'net',
+	cards: 'cards',
+	stencil: 'stencil'
+} as const satisfies Record<ObjectId, string>;

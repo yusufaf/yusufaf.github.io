@@ -1,5 +1,6 @@
-import { unmappedRepos } from '$lib/server/repos';
+import { loadRepos, unmappedRepos } from '$lib/server/repos';
 
-export function load() {
-	return { loose: unmappedRepos().map(({ name, description }) => ({ name, description })) };
+export async function load({ fetch }) {
+	const repos = await loadRepos(fetch);
+	return { loose: unmappedRepos(repos).map(({ name, description }) => ({ name, description })) };
 }

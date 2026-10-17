@@ -1,65 +1,35 @@
 <script lang="ts">
 	import { goto } from '$app/navigation';
 	import hotspots from '$lib/print/hotspots.json';
-	import { PRINT_OBJECTS, ORDERED_OBJECTS, type ObjectId } from '$lib/content/catalog';
+	import { PRINT_OBJECTS, SPOT_KEY, type ObjectId } from '$lib/content/catalog';
 	import { INTRO, LINKS, NAME, RESUME_PDF, TITLE } from '$lib/content/site';
 
 	const ALT =
 		'Cyanotype photogram: a 7-inch record, three index cards, a Galaxy Watch, a flowchart stencil, a game controller with its cable, and a basketball net, printed white on blue.';
 
-	// Renderer keys -> catalog objects; the net stands in for basketball.
-	const FROM_KEY: Record<string, ObjectId> = {
-		watch: 'watch',
-		record: 'record',
-		controller: 'controller',
-		net: 'basketball',
-		cards: 'cards',
-		stencil: 'stencil'
-	};
+	const map = hotspots.desktopMap;
+	const fromKey = Object.fromEntries(
+		Object.entries(SPOT_KEY).map(([id, key]) => [key, id as ObjectId])
+	);
 
 	// Decode the renderer's owner grid once: which object (if any) owns each cell.
-	const map = hotspots.desktopMap;
 	const owner = new Int8Array(map.w * map.h);
 	{
 		let i = 0;
 		for (const [key, count] of map.runs) owner.fill(key, i, (i += count));
 	}
 
-	// Centre of each object's own cells, for placing the caption on keyboard focus.
-	const centre: Partial<Record<ObjectId, { x: number; y: number }>> = {};
-	map.keys.forEach((key, k) => {
-		let sx = 0;
-		let sy = 0;
-		let n = 0;
-		owner.forEach((o, i) => {
-			if (o !== k) return;
-			sx += i % map.w;
-			sy += Math.floor(i / map.w);
-			n++;
-		});
-		if (n) {
-			centre[FROM_KEY[key]] = {
-				x: ((sx / n + 0.5) / map.w) * 100,
-				y: ((sy / n + 0.5) / map.h) * 100
-			};
-		}
-	});
-
-	const objects = ORDERED_OBJECTS.map((id) => {
-		const group = PRINT_OBJECTS.find((g) => g.id === id)!;
-		const key = Object.keys(FROM_KEY).find(
-			(k) => FROM_KEY[k] === id
-		) as keyof typeof hotspots.desktop;
+	const objects = PRINT_OBJECTS.map((group) => {
+		const key = SPOT_KEY[group.id];
 		const [x, y, w, h] = hotspots.desktop[key];
+		const [cx, cy] = map.centres[key];
 		return {
-			id,
+			id: group.id,
 			name: group.printName ?? group.name,
 			caption: group.caption,
 			count: group.entries.length,
-			x,
-			y,
-			w,
-			h
+			box: { x, y, w, h },
+			centre: { x: cx, y: cy }
 		};
 	});
 
@@ -67,7 +37,7 @@
 	let at = $state({ x: 0, y: 0 });
 	const current = $derived(objects.find((o) => o.id === active));
 
-	function objectAt(e: PointerEvent): ObjectId | null {
+	function objectAt(e: PointerEvent | MouseEvent): ObjectId | null {
 		const box = (e.currentTarget as HTMLElement).getBoundingClientRect();
 		const fx = (e.clientX - box.left) / box.width;
 		const fy = (e.clientY - box.top) / box.height;
@@ -75,12 +45,12 @@
 		const cy = Math.min(map.h - 1, Math.max(0, Math.floor(fy * map.h)));
 		const k = owner[cy * map.w + cx];
 		at = { x: fx * 100, y: fy * 100 };
-		return k < 0 ? null : FROM_KEY[map.keys[k]];
+		return k < 0 ? null : fromKey[map.keys[k]];
 	}
 
 	function focusOn(id: ObjectId) {
 		active = id;
-		at = centre[id] ?? at;
+		at = objects.find((o) => o.id === id)!.centre;
 	}
 </script>
 
@@ -114,7 +84,11 @@
 				fetchpriority="high"
 			/>
 		</picture>
-		<div class="sensitizer" aria-hidden="true"></div>
+		<div
+			class="sensitizer"
+			aria-hidden="true"
+			onanimationend={() => document.documentElement.classList.remove('develop')}
+		></div>
 
 		<!-- Pointer hit-testing uses the renderer's pixel map, not the link boxes,
 		     which overlap. The links below are the keyboard and screen reader path. -->
@@ -124,7 +98,11 @@
 			aria-hidden="true"
 			onpointermove={(e) => (active = objectAt(e))}
 			onpointerleave={() => (active = null)}
-			onclick={() => active && goto(`#${active}`)}
+			onclick={(e) => {
+				// Taps arrive without a prior pointermove, so hit-test the click itself.
+				const id = objectAt(e);
+				if (id) goto(`#${id}`);
+			}}
 		></div>
 
 		<nav class="spots" aria-label="Objects on the print">
@@ -132,7 +110,7 @@
 				<a
 					href="#{o.id}"
 					class="spot"
-					style="left: {o.x}%; top: {o.y}%; width: {o.w}%; height: {o.h}%"
+					style="left: {o.box.x}%; top: {o.box.y}%; width: {o.box.w}%; height: {o.box.h}%"
 					aria-label="{o.name}: {o.caption} {o.count} {o.count === 1 ? 'project' : 'projects'}"
 					onfocus={() => focusOn(o.id)}
 					onblur={() => (active = null)}
@@ -216,6 +194,11 @@
 	.spots {
 		position: absolute;
 		inset: 0;
+	}
+
+	/* The nav sits above .hit in paint order; let the pointer through to it. */
+	.spots {
+		pointer-events: none;
 	}
 
 	.hit.on {

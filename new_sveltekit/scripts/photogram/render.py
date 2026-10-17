@@ -374,13 +374,19 @@ def label_map(objs, W, H, gw, thresh=0.5):
         cv2.resize(cv2.dilate((objs[key] > 0.3).astype(np.float32), grow), (gw, gh), interpolation=cv2.INTER_AREA)
         for key in keys
     ])
-    owner = np.where(stack.max(axis=0) > thresh, stack.argmax(axis=0), -1).ravel()
+    grid = np.where(stack.max(axis=0) > thresh, stack.argmax(axis=0), -1)
+    centres = {}
+    for i, key in enumerate(keys):
+        ys, xs = np.nonzero(grid == i)
+        if len(xs):
+            centres[key] = [round(100 * (xs.mean() + 0.5) / gw, 2), round(100 * (ys.mean() + 0.5) / gh, 2)]
+    owner = grid.ravel()
     runs, start = [], 0
     for i in range(1, len(owner) + 1):
         if i == len(owner) or owner[i] != owner[start]:
             runs.append([int(owner[start]), i - start])
             start = i
-    return {"w": gw, "h": gh, "keys": keys, "runs": runs}
+    return {"w": gw, "h": gh, "keys": keys, "runs": runs, "centres": centres}
 
 
 PLATE_URL = "https://images.metmuseum.org/CRDImages/ph/original/DP-17302-078.jpg"  # Met 291572, public domain
