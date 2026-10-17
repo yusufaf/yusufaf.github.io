@@ -1,29 +1,23 @@
-<div class="resume-container">
-	<div class="resume-title">
-		<b>Resume</b>
-	</div>
-	<img src="/images/resume.jpg" alt="Resume" class="resume-img" />
-</div>
+<script lang="ts">
+	import { LINKS, NAME, RESUME_PDF } from '$lib/content/site';
+
+	// The old site served /resume; keep the URL working. Points at the PDF once
+	// there is one, LinkedIn until then.
+	const target = RESUME_PDF ?? LINKS.find((l) => l.label === 'LinkedIn')!.href;
+</script>
+
+<svelte:head>
+	<title>Resume | {NAME}</title>
+	<meta http-equiv="refresh" content="0; url={target}" />
+	<meta name="robots" content="noindex" />
+</svelte:head>
+
+<main>
+	<a href={target}>Resume</a>
+</main>
 
 <style>
-	.resume-container {
-		background: #1f1b24;
-		margin: 20px auto 0;
-		width: min(60vw, 95vw);
-		height: fit-content;
-		display: flex;
-		flex-direction: column;
-		box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
-		padding: 10px 15px;
-	}
-
-	.resume-title {
-		color: white;
-		display: flex;
-	}
-
-	.resume-img {
-		padding: 5px;
-		max-width: 100%;
+	main {
+		padding: 56px var(--gutter);
 	}
 </style>

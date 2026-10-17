@@ -2,15 +2,34 @@
 <html lang="en">
 	<head>
 		<meta charset="utf-8" />
-		<link rel="icon" href="%sveltekit.assets%/favicon.ico" />
+		<link rel="icon" href="%sveltekit.assets%/favicon.ico" sizes="48x48" />
 		<link rel="apple-touch-icon" href="%sveltekit.assets%/apple-touch-icon.png" />
 		<link rel="manifest" href="%sveltekit.assets%/manifest.json" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<meta name="theme-color" content="#000000" />
-		<meta name="description" content="Yusuf Afzal — personal site" />
-		<title>Yusuf Afzal</title>
-		<!-- Umami analytics — self-hosted, cookieless. See C:\Projects\umami-flyio. -->
-		<script defer src="https://analytics.yusufaf.dev/s.js" data-website-id="ee5f39bb-b558-49e7-9214-b80c75907549"></script>
+		<meta name="theme-color" content="#0f3a63" />
+		<script>
+			// The print develops once per visit, on the home page, unless motion is
+			// reduced. Set before first paint so a prerendered page never flashes.
+			try {
+				if (
+					location.pathname === '/' &&
+					!matchMedia('(prefers-reduced-motion: reduce)').matches &&
+					!sessionStorage.getItem('developed')
+				) {
+					document.documentElement.classList.add('develop');
+					sessionStorage.setItem('developed', '1');
+				}
+			} catch {
+				// Storage blocked: skip the animation.
+			}
+		</script>
+		<!-- Umami analytics, self-hosted and cookieless. See C:\Projects\umami-flyio. -->
+		<script
+			defer
+			src="https://analytics.yusufaf.dev/s.js"
+			data-website-id="ee5f39bb-b558-49e7-9214-b80c75907549"
+			data-domains="yusufaf.dev"
+		></script>
 		%sveltekit.head%
 	</head>
 	<body data-sveltekit-preload-data="hover">

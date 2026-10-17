@@ -3,6 +3,14 @@ name: Deploy site
 on:
   push:
     branches: [source]
+  # Pushes made with the bot's GITHUB_TOKEN (the metadata refresh) never
+  # trigger `on: push`, so redeploy when that workflow finishes, and daily so
+  # the "Lately" line on the home page stays current.
+  workflow_run:
+    workflows: [Sync repo metadata]
+    types: [completed]
+  schedule:
+    - cron: '0 13 * * *'
   workflow_dispatch: {}
 
 permissions:
@@ -23,6 +31,8 @@ concurrency:
 jobs:
   build:
     name: Build
+    # A failed or cancelled sync has nothing new to deploy.
+    if: github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success'
     runs-on: ubuntu-latest
     defaults:
       run:
@@ -36,6 +46,8 @@ jobs:
       - uses: actions/configure-pages@v6
       - run: pnpm install
       - run: pnpm run build
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - uses: actions/upload-pages-artifact@v5
         with: { path: new_sveltekit/build }
 

@@ -1,4 +1,4 @@
-name: Sync project READMEs
+name: Sync repo metadata
 on:
   schedule:
     - cron: '0 6 * * 1'   # weekly, Monday 06:00 UTC
@@ -32,7 +32,7 @@ jobs:
       - run: pnpm run sync:projects
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - name: Commit cache if changed
+      - name: Commit snapshot if changed
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
@@ -40,7 +40,7 @@ jobs:
           # One check, not two: after the commit nothing is staged, so a second
           # `git diff --cached --quiet || git push` is always true and skips the push.
           if ! git diff --cached --quiet; then
-            git commit -m "chore: refresh project README cache"
+            git commit -m "chore: refresh repo metadata"
             git push
           fi
         working-directory: .

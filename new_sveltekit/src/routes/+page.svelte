@@ -1,97 +1,75 @@
-<div class="about-container">
-	<div class="about-section">
-		<div class="section-title">About me</div>
-		<div class="section-content">
-			Hi there! My name is Yusuf Afzal. 🐨
-			<br />
-			I'm a graduating senior at the University of Oregon, majoring in Computer Science.
-			<br />
-			I'm currently working as a Web Development Intern at Pacific Northwest National Laboratory.
-		</div>
-	</div>
-	<div class="about-section">
-		<div class="section-title">Interests</div>
-		<div class="section-content">
-			<ul>
-				<li>Building scalable and maintainable software</li>
-				<li>Cloud and serverless technologies</li>
-				<li>Developing software that makes the lives of businesses and consumers easier</li>
-			</ul>
-		</div>
-	</div>
-	<div class="about-section">
-		<div class="section-title">Technical Skills</div>
-		<div class="section-content">
-			<ul>
-				<li><strong>Programming Languages: </strong> Python, JavaScript, TypeScript, HTML, CSS</li>
-				<li><strong>Frameworks:</strong> React, Svelte, Vue, Node.js, Django</li>
-				<li><strong>Database:</strong> MySQL, MongoDB</li>
-				<li><strong>Tools:</strong> AWS, Git, Docker, Jira, Confluence</li>
-			</ul>
-		</div>
-	</div>
-	<div class="about-section">
-		<div class="section-title">Highlighted Projects</div>
-		<div class="section-content indented">
-			<div class="section-title">
-				<a class="section-link" href="https://github.com/yusufaf/quizaroni">Quizaroni</a>
-			</div>
-			Create and share study flash cards with your friends.
-		</div>
-		<div class="section-content indented">
-			<div class="section-title">
-				<a class="section-link" href="https://github.com/yusufaf/nba-central">NBA Team Builder</a>
-			</div>
-			Build your own NBA team and aim for the best score. Share with friends and see who can build the
-			best team.
-		</div>
-	</div>
-</div>
+<script lang="ts">
+	import Hero from '$lib/components/Hero.svelte';
+	import Catalog from '$lib/components/Catalog.svelte';
+	import Footer from '$lib/components/Footer.svelte';
+	import Seo from '$lib/components/Seo.svelte';
+	import { PRINT_OBJECTS } from '$lib/content/catalog';
+	import { INTRO, MOD_LINE, NAME } from '$lib/content/site';
+
+	let { data } = $props();
+</script>
+
+<Seo title={NAME} description={INTRO} />
+
+<a class="skip" href="#catalog">Skip to projects</a>
+
+<Hero />
+
+<main>
+	<section class="legend" aria-label="What's on the print">
+		<p class="mod">{MOD_LINE}</p>
+		<ul>
+			{#each PRINT_OBJECTS as g (g.id)}
+				<li>
+					<a href="#{g.id}">{g.printName ?? g.name}</a>
+					<span>{g.caption}</span>
+				</li>
+			{/each}
+		</ul>
+	</section>
+
+	<Catalog loose={data.loose} />
+</main>
+
+<Footer activity={data.activity} />
 
 <style>
-	.about-container {
-		background: #1f1b24;
-		margin: 20px auto 0;
-		width: min(45vw, 90vw);
-		max-width: 45rem;
-		height: 37.5rem;
+	.legend {
+		max-width: var(--measure);
+		margin: 0 auto;
+		box-sizing: border-box;
+		padding: 88px var(--gutter) 40px;
 		display: flex;
-		flex-direction: column;
-		gap: 1.25rem;
-		box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
-		padding: 10px 15px;
-		overflow-y: auto;
+		flex-wrap: wrap;
+		gap: 40px 72px;
 	}
 
-	.about-section {
-		display: flex;
-		flex-direction: column;
-		gap: 0.25rem;
+	.mod {
+		flex: 1 1 320px;
+		max-width: 420px;
+		margin: 0;
+		font-size: 26px;
+		line-height: 1.35;
+		font-weight: 500;
 	}
 
-	.section-title {
-		display: flex;
-		color: white;
-		font-weight: bold;
+	ul {
+		flex: 999 1 480px;
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+		gap: 22px 40px;
+		margin: 0;
+		padding: 0;
+		list-style: none;
+		line-height: 1.45;
 	}
 
-	.section-content {
-		color: white;
-		text-align: left;
-		white-space: pre-line;
+	li a {
+		display: block;
+		font-weight: 700;
 	}
 
-	.section-content.indented {
-		padding-left: 1rem;
-	}
-
-	.section-link {
-		color: white;
-		transition: color 0.2s ease;
-		text-decoration: none;
-	}
-
-	.section-link:hover {
-		color: slateblue;
+	li span {
+		color: var(--mist);
 	}
 </style>
