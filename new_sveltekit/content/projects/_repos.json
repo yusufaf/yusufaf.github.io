@@ -46,7 +46,7 @@
     "description": "Lark: open-source standalone alarm clock for Wear OS",
     "homepage": "",
     "language": "Kotlin",
-    "pushedAt": "2026-10-16T06:06:57Z"
+    "pushedAt": "2026-10-19T05:15:20Z"
   },
   {
     "name": "logto-flyio",
@@ -67,14 +67,14 @@
     "description": "NBA team-building app — draft custom rosters from the full all-time player pool, plus coaches, arenas, and GMs. Vue 3 frontend, AWS CDK serverless backend, pnpm monorepo.",
     "homepage": "https://nba.yusufaf.dev",
     "language": "TypeScript",
-    "pushedAt": "2026-10-17T06:22:44Z"
+    "pushedAt": "2026-10-19T02:24:57Z"
   },
   {
     "name": "no-incognito",
     "description": "Disable private browsing in Firefox and Zen Browser: a WebExtension that closes private windows plus a Zen mod that hides the menu entries.",
     "homepage": "",
     "language": "JavaScript",
-    "pushedAt": "2026-10-09T07:37:44Z"
+    "pushedAt": "2026-10-19T01:06:01Z"
   },
   {
     "name": "ntfy-flyio",
@@ -95,14 +95,14 @@
     "description": "Flashcard & quiz study app — React frontend + serverless AWS backend (Lambda, DynamoDB, S3, Cognito) in a pnpm monorepo.",
     "homepage": "https://quizaroni.yusufaf.dev",
     "language": "TypeScript",
-    "pushedAt": "2026-10-17T06:24:16Z"
+    "pushedAt": "2026-10-19T05:06:52Z"
   },
   {
     "name": "sfn-diagram",
     "description": "Generate SVG, Mermaid, HTML, and PNG diagrams from AWS Step Functions ASL definitions, CloudFormation/SAM/CDK templates, or live AWS state machines",
     "homepage": "https://sfn.yusufaf.dev",
     "language": "TypeScript",
-    "pushedAt": "2026-10-17T06:10:19Z"
+    "pushedAt": "2026-10-19T02:29:24Z"
   },
   {
     "name": "sfn-diagram-action",
@@ -123,7 +123,7 @@
     "description": "Agent skills for developing Spicetify extensions with AI coding agents: drive the live Spotify desktop client over CDP, and capture README/Marketplace screenshots.",
     "homepage": "",
     "language": "JavaScript",
-    "pushedAt": "2026-07-19T01:21:08Z"
+    "pushedAt": "2026-10-18T05:17:50Z"
   },
   {
     "name": "spicetify-album-length",
@@ -158,7 +158,7 @@
     "description": "Real tag metadata (artist, album artist, year, genre, bitrate, and more) as sortable, filterable columns on Spotify's Local Files page",
     "homepage": "https://spicetify.yusufaf.dev/local-files-plus/",
     "language": "JavaScript",
-    "pushedAt": "2026-10-17T06:38:51Z"
+    "pushedAt": "2026-10-17T06:50:12Z"
   },
   {
     "name": "spicetify-rym",
@@ -186,7 +186,7 @@
     "description": "Team Fortress 2 cosmetic loadout bench: browse and try on cosmetics, detect equip-region conflicts, see live backpack.tf prices, and get AI loadout suggestions",
     "homepage": "https://tf2.yusufaf.dev",
     "language": "Python",
-    "pushedAt": "2026-10-15T06:32:28Z"
+    "pushedAt": "2026-10-18T01:59:09Z"
   },
   {
     "name": "tf2-wiki-mcp",
@@ -221,7 +221,7 @@
     "description": "Open-source standalone email client for Wear OS: read and triage any IMAP inbox on your watch, no phone app required",
     "homepage": "",
     "language": "Kotlin",
-    "pushedAt": "2026-10-15T06:29:06Z"
+    "pushedAt": "2026-10-19T03:31:24Z"
   },
   {
     "name": "yamtrack-flyio",
@@ -242,6 +242,6 @@
     "description": "Personal website",
     "homepage": "",
     "language": "JavaScript",
-    "pushedAt": "2026-10-17T06:35:48Z"
+    "pushedAt": "2026-10-17T06:42:32Z"
   }
 ]
