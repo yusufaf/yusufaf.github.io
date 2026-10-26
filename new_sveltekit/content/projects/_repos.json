@@ -39,14 +39,14 @@
     "description": "Homebrew formulae for yusufaf projects (sfn-diagram)",
     "homepage": "",
     "language": "Ruby",
-    "pushedAt": "2026-10-02T07:45:15Z"
+    "pushedAt": "2026-10-25T22:54:07Z"
   },
   {
     "name": "lark-alarm",
     "description": "Lark: open-source standalone alarm clock for Wear OS",
     "homepage": "",
     "language": "Kotlin",
-    "pushedAt": "2026-10-19T05:15:20Z"
+    "pushedAt": "2026-10-26T00:03:32Z"
   },
   {
     "name": "logto-flyio",
@@ -67,7 +67,7 @@
     "description": "NBA team-building app — draft custom rosters from the full all-time player pool, plus coaches, arenas, and GMs. Vue 3 frontend, AWS CDK serverless backend, pnpm monorepo.",
     "homepage": "https://nba.yusufaf.dev",
     "language": "TypeScript",
-    "pushedAt": "2026-10-19T02:24:57Z"
+    "pushedAt": "2026-10-26T00:36:32Z"
   },
   {
     "name": "no-incognito",
@@ -84,6 +84,13 @@
     "pushedAt": "2026-09-12T08:09:42Z"
   },
   {
+    "name": "oil-on-cotton",
+    "description": "An independent index of clothing sold by museum shops, hung by room.",
+    "homepage": "https://oiloncotton.com",
+    "language": "TypeScript",
+    "pushedAt": "2026-10-25T23:56:57Z"
+  },
+  {
     "name": "open-notebook-flyio",
     "description": "Fly.io deployment config for Open Notebook (self-hosted NotebookLM alternative) — two apps, ~$5/mo with auto-stop",
     "homepage": "",
@@ -95,21 +102,21 @@
     "description": "Flashcard & quiz study app — React frontend + serverless AWS backend (Lambda, DynamoDB, S3, Cognito) in a pnpm monorepo.",
     "homepage": "https://quizaroni.yusufaf.dev",
     "language": "TypeScript",
-    "pushedAt": "2026-10-19T05:06:52Z"
+    "pushedAt": "2026-10-25T23:56:22Z"
   },
   {
     "name": "sfn-diagram",
     "description": "Generate SVG, Mermaid, HTML, and PNG diagrams from AWS Step Functions ASL definitions, CloudFormation/SAM/CDK templates, or live AWS state machines",
     "homepage": "https://sfn.yusufaf.dev",
     "language": "TypeScript",
-    "pushedAt": "2026-10-19T02:29:24Z"
+    "pushedAt": "2026-10-26T00:49:38Z"
   },
   {
     "name": "sfn-diagram-action",
     "description": "GitHub Action: preview & diff AWS Step Functions diagrams on pull requests",
     "homepage": "https://sfn.yusufaf.dev/ecosystem/github-action/",
     "language": "",
-    "pushedAt": "2026-10-02T07:42:37Z"
+    "pushedAt": "2026-10-25T22:51:29Z"
   },
   {
     "name": "sparkyfitness-flyio",
@@ -130,49 +137,70 @@
     "description": "Spicetify extension that shows the length of each track's source album/EP inline in playlists, Liked Songs, and the Queue.",
     "homepage": "https://spicetify.yusufaf.dev/album-length/",
     "language": "JavaScript",
-    "pushedAt": "2026-10-15T05:30:15Z"
+    "pushedAt": "2026-10-24T05:44:34Z"
+  },
+  {
+    "name": "spicetify-compat",
+    "description": "Tells you when it's safe to update Spotify and Spicetify, and checks your extensions still work afterwards.",
+    "homepage": "",
+    "language": "JavaScript",
+    "pushedAt": "2026-10-26T04:50:21Z"
   },
   {
     "name": "spicetify-enhanced-folders",
     "description": "Spicetify extension: add custom images and descriptions to Spotify playlist folders.",
     "homepage": "https://spicetify.yusufaf.dev/enhanced-folders/",
     "language": "JavaScript",
-    "pushedAt": "2026-10-15T06:26:57Z"
+    "pushedAt": "2026-10-24T05:44:51Z"
   },
   {
     "name": "spicetify-enhanced-pins",
     "description": "Bypass Spotify's 4-pin limit with unlimited enhanced pins",
     "homepage": "https://spicetify.yusufaf.dev/enhanced-pins/",
     "language": "JavaScript",
-    "pushedAt": "2026-10-17T05:14:19Z"
+    "pushedAt": "2026-10-24T05:44:54Z"
   },
   {
     "name": "spicetify-listening-list",
     "description": "Mark albums and tracks as listened, with inline indicators across Spotify",
     "homepage": "https://spicetify.yusufaf.dev/listening-list/",
     "language": "JavaScript",
-    "pushedAt": "2026-10-15T05:30:07Z"
+    "pushedAt": "2026-10-24T05:44:52Z"
   },
   {
     "name": "spicetify-local-files-plus",
     "description": "Real tag metadata (artist, album artist, year, genre, bitrate, and more) as sortable, filterable columns on Spotify's Local Files page",
     "homepage": "https://spicetify.yusufaf.dev/local-files-plus/",
     "language": "JavaScript",
-    "pushedAt": "2026-10-17T06:50:12Z"
+    "pushedAt": "2026-10-24T05:44:56Z"
+  },
+  {
+    "name": "spicetify-producers",
+    "description": "Show each track's producers, from Spotify's own credits, as a column on album and playlist pages.",
+    "homepage": "https://spicetify.yusufaf.dev/producers/",
+    "language": "JavaScript",
+    "pushedAt": "2026-10-24T05:45:22Z"
   },
   {
     "name": "spicetify-rym",
     "description": "Quick access to RateYourMusic album pages from Spotify",
     "homepage": "https://spicetify.yusufaf.dev/rym/",
     "language": "JavaScript",
-    "pushedAt": "2026-10-15T06:26:30Z"
+    "pushedAt": "2026-10-24T05:44:59Z"
   },
   {
     "name": "spicetify-site",
     "description": "Docs hub for yusufaf's Spicetify extensions",
     "homepage": "https://spicetify.yusufaf.dev",
     "language": "JavaScript",
-    "pushedAt": "2026-10-17T05:56:16Z"
+    "pushedAt": "2026-10-20T07:17:29Z"
+  },
+  {
+    "name": "spicetify-smart-add",
+    "description": "Suggests your mapped playlists first in Spotify's Add to playlist menu",
+    "homepage": "https://spicetify.yusufaf.dev/smart-add/",
+    "language": "JavaScript",
+    "pushedAt": "2026-10-24T05:45:29Z"
   },
   {
     "name": "suwayomi-flyio",
@@ -186,7 +214,7 @@
     "description": "Team Fortress 2 cosmetic loadout bench: browse and try on cosmetics, detect equip-region conflicts, see live backpack.tf prices, and get AI loadout suggestions",
     "homepage": "https://tf2.yusufaf.dev",
     "language": "Python",
-    "pushedAt": "2026-10-18T01:59:09Z"
+    "pushedAt": "2026-10-25T23:58:57Z"
   },
   {
     "name": "tf2-wiki-mcp",
@@ -221,7 +249,7 @@
     "description": "Open-source standalone email client for Wear OS: read and triage any IMAP inbox on your watch, no phone app required",
     "homepage": "",
     "language": "Kotlin",
-    "pushedAt": "2026-10-19T03:31:24Z"
+    "pushedAt": "2026-10-26T03:32:03Z"
   },
   {
     "name": "yamtrack-flyio",
@@ -242,6 +270,6 @@
     "description": "Personal website",
     "homepage": "",
     "language": "JavaScript",
-    "pushedAt": "2026-10-17T06:42:32Z"
+    "pushedAt": "2026-10-19T11:55:16Z"
   }
 ]
