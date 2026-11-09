@@ -39,7 +39,7 @@
     "description": "Homebrew formulae for yusufaf projects (sfn-diagram)",
     "homepage": "",
     "language": "Ruby",
-    "pushedAt": "2026-10-31T21:45:32Z"
+    "pushedAt": "2026-11-09T04:44:05Z"
   },
   {
     "name": "lark-alarm",
@@ -67,7 +67,7 @@
     "description": "NBA team-building app — draft custom rosters from the full all-time player pool, plus coaches, arenas, and GMs. Vue 3 frontend, AWS CDK serverless backend, pnpm monorepo.",
     "homepage": "https://nba.yusufaf.dev",
     "language": "TypeScript",
-    "pushedAt": "2026-11-02T14:16:27Z"
+    "pushedAt": "2026-11-09T07:16:36Z"
   },
   {
     "name": "no-incognito",
@@ -88,7 +88,7 @@
     "description": "An independent index of clothing sold by museum shops, hung by room.",
     "homepage": "https://oiloncotton.com",
     "language": "TypeScript",
-    "pushedAt": "2026-11-02T06:12:01Z"
+    "pushedAt": "2026-11-09T07:15:51Z"
   },
   {
     "name": "open-notebook-flyio",
@@ -102,21 +102,28 @@
     "description": "Flashcard & quiz study app — React frontend + serverless AWS backend (Lambda, DynamoDB, S3, Cognito) in a pnpm monorepo.",
     "homepage": "https://quizaroni.yusufaf.dev",
     "language": "TypeScript",
-    "pushedAt": "2026-11-02T14:26:58Z"
+    "pushedAt": "2026-11-09T07:21:03Z"
+  },
+  {
+    "name": "renovate-config",
+    "description": "Shared Renovate preset for yusufaf repositories",
+    "homepage": "",
+    "language": "",
+    "pushedAt": "2026-11-09T07:15:27Z"
   },
   {
     "name": "sfn-diagram",
     "description": "Generate SVG, Mermaid, HTML, and PNG diagrams from AWS Step Functions ASL definitions, CloudFormation/SAM/CDK templates, or live AWS state machines",
     "homepage": "https://sfn.yusufaf.dev",
     "language": "TypeScript",
-    "pushedAt": "2026-11-02T14:17:01Z"
+    "pushedAt": "2026-11-09T14:15:29Z"
   },
   {
     "name": "sfn-diagram-action",
     "description": "GitHub Action: preview & diff AWS Step Functions diagrams on pull requests",
     "homepage": "https://sfn.yusufaf.dev/ecosystem/github-action/",
     "language": "",
-    "pushedAt": "2026-10-31T21:42:30Z"
+    "pushedAt": "2026-11-09T04:41:17Z"
   },
   {
     "name": "sparkyfitness-flyio",
@@ -165,7 +172,7 @@
     "description": "Spicetify extensions for the Spotify desktop client, their docs site and tooling",
     "homepage": "https://spicetify.yusufaf.dev/",
     "language": "JavaScript",
-    "pushedAt": "2026-11-02T06:21:03Z"
+    "pushedAt": "2026-11-06T19:29:47Z"
   },
   {
     "name": "spicetify-listening-list",
@@ -214,7 +221,7 @@
     "description": "Team Fortress 2 cosmetic loadout bench: browse and try on cosmetics, detect equip-region conflicts, see live backpack.tf prices, and get AI loadout suggestions",
     "homepage": "https://tf2.yusufaf.dev",
     "language": "Python",
-    "pushedAt": "2026-11-01T01:28:24Z"
+    "pushedAt": "2026-11-09T07:15:41Z"
   },
   {
     "name": "tf2-wiki-mcp",
@@ -249,7 +256,7 @@
     "description": "Open-source standalone email client for Wear OS: read and triage any IMAP inbox on your watch, no phone app required",
     "homepage": "",
     "language": "Kotlin",
-    "pushedAt": "2026-11-02T03:20:15Z"
+    "pushedAt": "2026-11-09T07:15:58Z"
   },
   {
     "name": "yamtrack-flyio",
@@ -270,6 +277,6 @@
     "description": "Personal website",
     "homepage": "",
     "language": "JavaScript",
-    "pushedAt": "2026-10-26T12:08:06Z"
+    "pushedAt": "2026-11-02T14:36:04Z"
   }
 ]
