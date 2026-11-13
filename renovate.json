@@ -1,0 +1,11 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": ["github>yusufaf/renovate-config"],
+  "packageRules": [
+    {
+      "description": "The root package.json is the legacy CRA site; deploy.yml builds only new_sveltekit/. Drop this once Phase 5 promotes new_sveltekit/ to the root",
+      "matchFileNames": ["package.json", "package-lock.json"],
+      "enabled": false
+    }
+  ]
+}
