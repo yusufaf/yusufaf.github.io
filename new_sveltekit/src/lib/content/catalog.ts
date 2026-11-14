@@ -36,9 +36,9 @@ export const GROUPS: Group[] = [
 		entries: [
 			{
 				label: 'spicetify.yusufaf.dev',
-				title: 'spicetify-site',
+				title: 'spicetify-extensions',
 				blurb: 'Docs for all six Spotify mods.',
-				repo: 'spicetify-site',
+				repo: 'spicetify-extensions',
 				live: { href: 'https://spicetify.yusufaf.dev/' }
 			},
 			{
